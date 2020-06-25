@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BgScroll : MonoBehaviour
 {
     public float scrollSpeed = 0.1f;
     private MeshRenderer _meshRenderer;
-    private float x_scroll;
+    private float _xScroll;
 
 
     private void Awake()
@@ -28,9 +25,9 @@ public class BgScroll : MonoBehaviour
 
     void Scroll()
     {
-        x_scroll = Time.time * scrollSpeed;
+        _xScroll = Time.time * scrollSpeed;
         
-        Vector2 offSet = new Vector2(x_scroll,0f);
+        Vector2 offSet = new Vector2(_xScroll,0f);
         _meshRenderer.sharedMaterial.SetTextureOffset("_MainTex",offSet);
         
     }
