@@ -31,14 +31,14 @@ public class EnmeyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // if (canRotate)
-        // {
-        //     if (Random.Range(0, 2) > 0)
-        //     {
-        //         rotate_Speed = Random.Range(rotate_Speed, rotate_Speed + 20f);
-        //         rotate_Speed *= -1; 
-        //     }
-        // }
+        if (canRotate)
+        {
+            if (Random.Range(0, 2) > 0)
+            {
+                rotate_Speed = Random.Range(rotate_Speed, rotate_Speed + 20f);
+                rotate_Speed *= -1; 
+            }
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class EnmeyScript : MonoBehaviour
     void Move()
     {
         Vector3 temp = transform.position;
-        temp.x -= speed * Time.deltaTime;
+        temp.x -= speed  * Time.deltaTime;
         transform.position = temp;
 
         if (temp.x < bound_X)
