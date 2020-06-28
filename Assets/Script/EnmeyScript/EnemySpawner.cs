@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Instantiate(enemyPrefabs, temp, Quaternion.Euler(0f, 0f, -90f));
+            Instantiate(enemyPrefabs, temp, Quaternion.Euler(0f, 0f, 90f));
         }
 
         Invoke("SpawnEnemies", timer);

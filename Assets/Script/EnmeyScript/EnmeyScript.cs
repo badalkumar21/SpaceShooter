@@ -39,6 +39,9 @@ public class EnmeyScript : MonoBehaviour
                 rotate_Speed *= -1; 
             }
         }
+        
+        if (canShoot)
+            Invoke("StartShooting",Random.Range(1f,3f));
     }
 
     // Update is called once per frame
@@ -69,5 +72,16 @@ public class EnmeyScript : MonoBehaviour
 
         {
         }
+    }
+
+    void StartShooting()
+    {
+        GameObject bullet = Instantiate(bullate_Prefabs, attack_Point.position, Quaternion.identity);
+        bullet.GetComponent<BulletScript>().isEnemyBullet = true;
+        
+        if (canShoot)
+            Invoke("StartShooting",Random.Range(1f,3f));
+        
+        
     }
 }
