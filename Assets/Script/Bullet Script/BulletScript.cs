@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,5 +35,15 @@ public class BulletScript : MonoBehaviour
     void DeactivateGameObject()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D target)
+    {
+
+        if (target.tag=="Bullet" || target.tag == "Enemy")
+        {
+            gameObject.SetActive(false);
+        }
+        
     }
 }

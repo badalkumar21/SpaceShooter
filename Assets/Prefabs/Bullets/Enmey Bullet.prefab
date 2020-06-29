@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7029862831373732655}
   - component: {fileID: 8450701753021223578}
   - component: {fileID: 7077419975122894115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enmey Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

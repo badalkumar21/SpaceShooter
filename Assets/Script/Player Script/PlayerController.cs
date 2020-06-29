@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,13 @@ public class PlayerController : MonoBehaviour
     public float attack_Timer = 0.35f;
     private float current_Attack_Timer;
     private bool canAttack;
+
+    private AudioSource laserAudio;
+
+    private void Awake()
+    {
+        laserAudio = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +75,10 @@ public class PlayerController : MonoBehaviour
                 canAttack = false;
                 attack_Timer = 0f;
                 Instantiate(player_Buller, attack_Point.position, Quaternion.identity);
-                
+
                 // play sound
+
+                laserAudio.Play();
             }
         }
     }
