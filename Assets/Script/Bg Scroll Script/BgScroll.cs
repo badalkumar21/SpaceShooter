@@ -27,7 +27,7 @@ public class BgScroll : MonoBehaviour
     {
         _xScroll = Time.time * scrollSpeed;
         
-        Vector2 offSet = new Vector2(_xScroll,0f);
+        Vector2 offSet = new Vector2(0f,_xScroll);
         _meshRenderer.sharedMaterial.SetTextureOffset("_MainTex",offSet);
         
     }

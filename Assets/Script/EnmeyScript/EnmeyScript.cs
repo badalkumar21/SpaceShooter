@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnmeyScript : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 3f;
 
     public float rotate_Speed = 50f;
 
@@ -15,7 +15,7 @@ public class EnmeyScript : MonoBehaviour
     private bool canMove = true;
     private bool isDestroyed = false;
 
-    public float bound_X = -11f;
+    public float bound_Y = -6.5f;
 
     public Transform attack_Point;
     public GameObject bullate_Prefabs;
@@ -32,6 +32,8 @@ public class EnmeyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.Rotate(0,0,90);
+
         if (canRotate)
         {
             if (Random.Range(0, 2) > 0)
@@ -63,11 +65,13 @@ public class EnmeyScript : MonoBehaviour
         }
 
         Vector3 temp = transform.position;
-        temp.x -= speed * Time.deltaTime;
+        temp.y -= speed * Time.deltaTime;
         transform.position = temp;
 
-        if (temp.x < bound_X)
+        if (temp.y < bound_Y)
         {
+            isDestroyed = true;
+            canShoot = false;
             gameObject.SetActive(false);
         }
     }
@@ -101,7 +105,7 @@ public class EnmeyScript : MonoBehaviour
                 CancelInvoke("StartShooting");
             }
 
-            Invoke("TurnOffGameObject", 3f);
+            Invoke("TurnOffGameObject", 0f);
 
             // play explosio0n sound
             explosionSound.Play();
@@ -114,6 +118,7 @@ public class EnmeyScript : MonoBehaviour
     {
         // Destroy(gameObject);
         isDestroyed = true;
+        canShoot = false;
         gameObject.SetActive(false);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public float min_Y, max_Y;
+    public float min_X, max_X;
 
     [SerializeField] private GameObject player_Buller;
     [SerializeField] private Transform attack_Point;
@@ -37,24 +37,24 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (Input.GetAxisRaw("Vertical") > 0f)
+        if (Input.GetAxisRaw("Horizontal") > 0f)
         {
             Vector3 temp = transform.position;
-            temp.y += speed * Time.deltaTime;
+            temp.x += speed * Time.deltaTime;
 
-            if (temp.y > max_Y)
-                temp.y = max_Y;
+            if (temp.x > max_X)
+                temp.x = max_X;
 
             transform.position = temp;
         }
-        else if (Input.GetAxisRaw("Vertical") < 0f)
+        else if (Input.GetAxisRaw("Horizontal") < 0f)
         {
             Vector3 temp = transform.position;
-            temp.y -= speed * Time.deltaTime;
+            temp.x -= speed * Time.deltaTime;
 
-            if (temp.y < min_Y)
-                if (temp.y < min_Y)
-                    temp.y = min_Y;
+            if (temp.x< min_X)
+                if (temp.x < min_X)
+                    temp.x = min_X;
 
             transform.position = temp;
         }

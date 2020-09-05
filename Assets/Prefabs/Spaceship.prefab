@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1386561928048227020}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: -7.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children:
   - {fileID: 7633236247088608383}
   m_Father: {fileID: 0}
@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  min_Y: -4.3
-  max_Y: 4.3
+  min_X: 0
+  max_X: 0
   player_Buller: {fileID: 1922387817092633928, guid: 2ed2d172049b60943b6041bf7e152aaa,
     type: 3}
   attack_Point: {fileID: 7633236247088608383}
+  attack_Timer: 0.35
 --- !u!1 &1678928578338542366
 GameObject:
   m_ObjectHideFlags: 0

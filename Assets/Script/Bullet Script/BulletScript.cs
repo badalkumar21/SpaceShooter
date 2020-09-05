@@ -6,12 +6,13 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float speed = 5f;
-    public float deactivate_Timer = 4f;
+    public float deactivate_Timer = 3f;
     [HideInInspector] public bool isEnemyBullet;
 
     // Start is called before the first frame update
     void Start()
     {
+        transform.Rotate(0,0,90);
         if (isEnemyBullet)
             speed *= -1f;
 
@@ -27,8 +28,7 @@ public class BulletScript : MonoBehaviour
     void Move()
     {
         Vector3 temp = transform.position;
-        temp.x += speed * Time.deltaTime;
-        transform.position = temp;
+        temp.y += speed * Time.deltaTime;
         transform.position = temp;
     }
 
@@ -42,7 +42,9 @@ public class BulletScript : MonoBehaviour
 
         if (target.tag=="Bullet" || target.tag == "Enemy")
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject,.0f);
+
+            // gameObject.SetActive(false);
         }
         
     }
